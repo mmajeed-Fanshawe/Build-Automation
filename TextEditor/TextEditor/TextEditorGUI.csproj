@@ -85,15 +85,11 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="CopyAFile">
     <Message Text="Copying bin\Debug to C:\"></Message>
-    <Exec Command="copy bin\Debug C:\" ContinueOnError="true">
-      <Output TaskParameter="ExitCode" PropertyName="CopiedFile" />
-    </Exec>
+    <Exec Command="copy bin\Debug C:\TextEditor"></Exec>
   </Target>
   <Target Name="ZipAFile">
     <Message Text="7zip the debug file"></Message>
-    <Exec Command="7z.exe a -t7z C:\files.7z bin\Debug\*" ContinueOnError="true">
-      <Output TaskParameter="ExitCode" PropertyName="CopiedFile" />
-    </Exec>
+    <Exec Command="7z.exe a C:\files.7ip bin\Debug\*"></Exec>
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
