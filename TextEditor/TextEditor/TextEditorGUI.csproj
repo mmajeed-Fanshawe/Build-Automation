@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build;CopyAFile;ZipAFile" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build;CopyAFile;ZipAFile;RunTest" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -81,15 +81,29 @@
       <Project>{9BE60169-CF1D-42FF-9920-1EFDFAB8B086}</Project>
       <Name>TextEditorLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\TextEditorTest\TextEditorTest.csproj">
+      <Project>{B94BBE36-FC23-4816-962D-4FD0DB4C1E1B}</Project>
+      <Name>TextEditorTest</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="CopyAFile">
-    <Message Text="Copying bin\Debug to C:\"></Message>
-    <Exec Command="copy bin\Debug C:\TextEditor"></Exec>
+    <Message Text="Copying bin\Debug to C:\">
+    </Message>
+    <Exec Command="copy bin\Debug C:\TextEditor">
+    </Exec>
   </Target>
   <Target Name="ZipAFile">
-    <Message Text="7zip the debug file"></Message>
-    <Exec Command="7z.exe a C:\files.7ip bin\Debug\*"></Exec>
+    <Message Text="7zip the debug file">
+    </Message>
+    <Exec Command="7z.exe a C:\files.7ip bin\Debug\*">
+    </Exec>
+  </Target>
+  <Target Name="RunTest">
+    <Message Text="Running NUnit Test">
+    </Message>
+    <Exec Command="NUnit\nunit-console.exe bin\Debug\TextEditorTest.dll">
+    </Exec>
   </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
